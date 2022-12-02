@@ -16,7 +16,7 @@ import skvideo
 import os.path
 # ffmpeg_path = os.path.join('ffmpeg','bin')
 # ffmpeg_path = Path('ffmpeg') / 'bin'
-ffmpeg_path = 'ffmpeg/bin'#Path('ffmpeg') / 'bin'
+ffmpeg_path = 'ffmpeg\bin'#Path('ffmpeg') / 'bin'
 # ffmpeg_path = "C:\\code\\justo_nudity_classifier\\ffmpeg\\bin"
 skvideo.setFFmpegPath(ffmpeg_path)
 import skvideo.io
