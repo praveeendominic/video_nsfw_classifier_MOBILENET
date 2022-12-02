@@ -14,7 +14,9 @@ import skvideo
 #Path('ffmpeg') / 'bin'#
 # Path('ffmpeg') / 'bin' #
 import os.path
-ffmpeg_path = os.path.join('ffmpeg','bin')
+# ffmpeg_path = os.path.join('ffmpeg','bin')
+# ffmpeg_path = Path('ffmpeg') / 'bin'
+ffmpeg_path = 'ffmpeg/bin'#Path('ffmpeg') / 'bin'
 # ffmpeg_path = "C:\\code\\justo_nudity_classifier\\ffmpeg\\bin"
 skvideo.setFFmpegPath(ffmpeg_path)
 import skvideo.io
@@ -47,10 +49,6 @@ if video_uploaded is not None:
         st.success("File upload complete..")
 
 
-    def image_nsfw_detector(file_path):
-        res=predict.classify(model,file_path)  
-        return res
-
     def video_nsfw_detector(video_path):
         videodata = skvideo.io.vread(video_path)
         flag=''
@@ -81,6 +79,9 @@ if video_uploaded is not None:
             result=f"Obscene content detected @ frame {frame_num}"
 
         return result
+
+    # result = video_nsfw_detector(fname_u)
+    # st.write(result)
 
     import time
     with st.spinner('Wait for it...'):
