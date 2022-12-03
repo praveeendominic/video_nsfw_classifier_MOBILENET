@@ -9,18 +9,6 @@ from tensorflow import keras
 import numpy as np
 from PIL import Image
 
-# import skvideo
-
-#Path('ffmpeg') / 'bin'#
-# Path('ffmpeg') / 'bin' #
-import os.path
-# ffmpeg_path_os = os.path.join('ffmpeg','bin')
-# ffmpeg_path = Path('ffmpeg') / 'bin'
-
-# # ffmpeg_path = 'ffmpeg\bin'#Path('ffmpeg') / 'bin'
-# # ffmpeg_path = "C:\\code\\justo_nudity_classifier\\ffmpeg\\bin"
-# skvideo.setFFmpegPath(str(ffmpeg_path))
-
 import cv2
 
 
@@ -28,10 +16,6 @@ result=''
 model_path = Path('model_mobilenet')/ 'saved_model.h5'
 model=predict.load_model(model_path)
 
-# st.write(model_path)
-# st.write(model_path)
-# st.write(ffmpeg_path_os)
-# st.write(ffmpeg_path)
 
 st.header('VIDEO NUDITY DETECTOR')
 st.write("Please select a video for nudity check.")
@@ -39,16 +23,11 @@ st.write("Please select a video for nudity check.")
 video_uploaded=st.file_uploader(label= "Please upload a file",accept_multiple_files=False, type = ['mp4'])
 if video_uploaded is not None:
     st.video(video_uploaded)
-    # st.write(video_uploaded.name)
 
-    # uploaded_image_path=os.path.join('tmp_dir',image_uploaded.name)
-    # st.write(uploaded_image_path)
     fname=os.path.splitext(video_uploaded.name)
     file_ext=fname[1]
-    # st.write(file_ext)
     fname_u='tmp'+file_ext
-    # st.write(fname_u)
-    
+  
     # saving file
     with open(fname_u, 'wb') as f:
         f.write(video_uploaded.getbuffer())
@@ -72,18 +51,11 @@ if video_uploaded is not None:
                 else:
                     flag = ''
         if flag!='x':
-            # print("Video is safe for publishing!")
             result="Video is safe for publishing!"
         else:
-            # print(f'Obscene content detected! at frame {frame_num}')
             result=f"Obscene content detected"
 
         return result
-
-
-
-    # result = video_nsfw_detector(fname_u)
-    # st.write(result)
 
     import time
     with st.spinner('Wait for it...'):
@@ -99,9 +71,3 @@ if video_uploaded is not None:
             
 
         
-
-    
-
-# print(result)
-
-
