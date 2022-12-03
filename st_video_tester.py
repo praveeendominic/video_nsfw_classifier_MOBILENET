@@ -9,7 +9,7 @@ from tensorflow import keras
 import numpy as np
 from PIL import Image
 
-import skvideo
+# import skvideo
 
 #Path('ffmpeg') / 'bin'#
 # Path('ffmpeg') / 'bin' #
@@ -21,7 +21,6 @@ import os.path
 # # ffmpeg_path = "C:\\code\\justo_nudity_classifier\\ffmpeg\\bin"
 # skvideo.setFFmpegPath(str(ffmpeg_path))
 
-import skvideo.io
 import cv2
 
 
