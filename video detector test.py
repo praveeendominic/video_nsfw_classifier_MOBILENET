@@ -14,13 +14,9 @@ import skvideo
 #Path('ffmpeg') / 'bin'#
 # Path('ffmpeg') / 'bin' #
 import os.path
-# ffmpeg_path_os = os.path.join('ffmpeg','bin')
-ffmpeg_path = Path('ffmpeg') / 'bin'
-
-# ffmpeg_path = 'ffmpeg\bin'#Path('ffmpeg') / 'bin'
+ffmpeg_path = os.path.join('ffmpeg','bin')
 # ffmpeg_path = "C:\\code\\justo_nudity_classifier\\ffmpeg\\bin"
-skvideo.setFFmpegPath( str(ffmpeg_path))
-
+skvideo.setFFmpegPath(ffmpeg_path)
 import skvideo.io
 
 
@@ -28,10 +24,6 @@ result=''
 model_path = Path('model_mobilenet')/ 'saved_model.h5'
 model=predict.load_model(model_path)
 
-# st.write(model_path)
-# st.write(model_path)
-# st.write(type(ffmpeg_path_os))
-# st.write(type(str(ffmpeg_path)))
 
 st.header('VIDEO NUDITY DETECTOR')
 st.write("Please select a video for nudity check.")
@@ -89,17 +81,9 @@ if video_uploaded is not None:
     # result = video_nsfw_detector(fname_u)
     # st.write(result)
 
-    import time
-    with st.spinner('Wait for it...'):
-        time.sleep(5)
-
+  
         result = video_nsfw_detector(fname_u)
-        # st.write(result)
 
-        if result=="Video is safe for publishing!":
-            st.success("Video is safe for publishing!")
-        else:
-            st.error(result)
             
 
         
