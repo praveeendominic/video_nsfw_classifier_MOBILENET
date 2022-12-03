@@ -1,0 +1,11 @@
+streamlit
+pathlib
+nsfw-detector
+sk-video==1.1.10
+opencv-python==4.6.0.66
+pillow
+scikit-video
+numpy
+cython
+menpo
+ffmpeg-python
